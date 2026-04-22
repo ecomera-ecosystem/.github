@@ -16,58 +16,58 @@ Ecomera is a full-stack e-commerce platform that demonstrates the complete journ
 ## 📦 Repositories
 
 ### Monolithic Reference
-- **[ecomera-backend](https://github.com/ecomera/ecomera-backend)** - Original monolithic Spring Boot application
+- **[ecomera-backend](https://github.com/ecomera-ecosystem/ecomera-backend)** - Original monolithic Spring Boot application
   - Complete e-commerce business logic (Authentication, Products, Orders, Payments, Cart)
   - Serves as reference architecture and comparison point
   - Demonstrates well-structured modular monolith with clear domain boundaries
 
 ### Microservices
-- **[ecomera-auth-service](https://github.com/ecomera/ecomera-auth-service)** - Authentication & Authorization microservice
+- **[ecomera-auth-service](https://github.com/ecomera-ecosystem/ecomera-auth-service)** - Authentication & Authorization microservice
   - User registration, login, and JWT token management
   - Secure authentication endpoints
   
-- **[ecomera-product-service](https://github.com/ecomera/ecomera-product-service)** - Product Catalog microservice
+- **[ecomera-product-service](https://github.com/ecomera-ecosystem/ecomera-product-service)** - Product Catalog microservice
   - Product CRUD operations
   - Category management
   - Inventory tracking
 
-- **[ecomera-order-service](https://github.com/ecomera/ecomera-order-service)** - Order Management microservice
+- **[ecomera-order-service](https://github.com/ecomera-ecosystem/ecomera-order-service)** - Order Management microservice
   - Order creation and processing
   - Order history and tracking
   - Order item management
 
-- **[ecomera-payment-service](https://github.com/ecomera/ecomera-payment-service)** - Payment Processing microservice
+- **[ecomera-payment-service](https://github.com/ecomera-ecosystem/ecomera-payment-service)** - Payment Processing microservice
   - Payment transaction handling
   - Payment method management
   - Transaction history
 
-- **[ecomera-cart-service](https://github.com/ecomera/ecomera-cart-service)** - Shopping Cart microservice
+- **[ecomera-cart-service](https://github.com/ecomera-ecosystem/ecomera-cart-service)** - Shopping Cart microservice
   - Cart creation and management
   - Cart item operations
   - Session-based cart handling
 
 ### Infrastructure & Gateway
-- **[ecomera-api-gateway](https://github.com/ecomera/ecomera-api-gateway)** - Spring Cloud Gateway
+- **[ecomera-api-gateway](https://github.com/ecomera-ecosystem/ecomera-api-gateway)** - Spring Cloud Gateway
   - Unified entry point for all microservices
   - Request routing and load balancing
   - Cross-cutting concerns (logging, security)
 
-- **[ecomera-eureka-service-registry](https://github.com/ecomera/ecomera-eureka-service-registry)** - Service Discovery
+- **[ecomera-eureka-service-registry](https://github.com/ecomera-ecosystem/ecomera-eureka-service-registry)** - Service Discovery
   - Dynamic service registration and discovery
   - Health monitoring and failover
   - Load balancing support
 
-- **[ecomera-config-server](https://github.com/ecomera/ecomera-config-server)** - Configuration Management
+- **[ecomera-config-server](https://github.com/ecomera-ecosystem/ecomera-config-server)** - Configuration Management
   - Centralized configuration for all microservices
   - HashiCorp Vault integration for secrets
   - Environment-specific properties
 
-- **[ecomera-api-config](https://github.com/ecomera/ecomera-api-config)** - Configuration Repository
+- **[ecomera-api-config](https://github.com/ecomera-ecosystem/ecomera-api-config)** - Configuration Repository
   - Git-based configuration storage
   - Service-specific configuration files
 
 ### Frontend
-- **[ecomera-frontend](https://github.com/ecomera/ecomera-frontend)** - Angular application
+- **[ecomera-frontend](https://github.com/ecomera-ecosystem/ecomera-frontend)** - Angular application
   - Angular Material UI components
   - TypeScript with reactive programming
   - Communicates with microservices via API Gateway
@@ -168,23 +168,26 @@ The platform implements a fully distributed microservices architecture:
 - **Shopping Cart** - Real-time cart operations
 - **Order Processing** - End-to-end order workflow
 - **Payment Processing** - Secure payment handling
+- **Notifications** - Email notifications for order updates
 
 ## 📂 Project Structure
 
 ```
 ecomera/
-├── ecomera-backend/              # Original monolithic reference
-├── ecomera-auth-service/         # Authentication microservice
-├── ecomera-product-service/      # Product catalog microservice
-├── ecomera-order-service/        # Order management microservice
-├── ecomera-payment-service/      # Payment processing microservice
-├── ecomera-cart-service/         # Shopping cart microservice
-├── ecomera-api-gateway/          # API Gateway
+├── ecomera-backend/                  # Original monolithic reference
+├── ecomera-auth-service/             # Authentication microservice
+├── ecomera-product-service/          # Product catalog microservice
+├── ecomera-order-service/            # Order management microservice
+├── ecomera-payment-service/          # Payment processing microservice
+├── ecomera-cart-service/             # Shopping cart microservice
+├── ecomera-notification-service/     # Notification microservice (Kafka + Email + MongoDB)
+├── ecomera-api-gateway/              # API Gateway
 ├── ecomera-eureka-service-registry/  # Service discovery
-├── ecomera-config-server/        # Configuration server
-├── ecomera-api-config/           # Configuration repository
-├── ecomera-frontend/             # Angular application
-└── .github/                      # CI/CD workflows
+├── ecomera-config-server/            # Configuration server
+├── ecomera-api-config/               # Configuration repository
+├── ecomera-frontend/                 # Angular application
+└── .github/                          # CI/CD centralized workflows
+
 ```
 
 ## 🚀 Migration Journey
@@ -213,19 +216,6 @@ This project demonstrates the complete migration from monolithic to microservice
 - Distributed caching with Redis
 - End-to-end testing across services
 - CI/CD pipeline for each microservice
-
-## 🎓 Architectural Lessons
-
-**Why Keep the Monolith?**
-- Reference for comparison and architectural decisions
-- Demonstrates understanding of both approaches
-- Shows migration path and decomposition strategy
-- Useful for performance benchmarking
-
-**Microservices Trade-offs**
-- **Benefits**: Independent scaling, deployment, and technology choices
-- **Challenges**: Distributed data management, increased complexity, network latency
-- **Solution**: Proper service boundaries, API Gateway, service discovery
 
 ## 📫 Connect
 
