@@ -1,11 +1,13 @@
 name: GitHub Labeler
 
 on:
-  workflow_call:
-    secrets:
-      GITHUB_TOKEN:
-        required: true
-
+  pull_request:
+    branches: [ master, development ]
+    types: [ opened, edited, reopened, labeled, unlabeled, synchronize ]
+  issues:
+    types: [ opened, edited, reopened, labeled, unlabeled, milestoned, demilestoned ]
+  schedule:
+    - cron: "0 0 * * 1"
 jobs:
   label:
     runs-on: ubuntu-latest

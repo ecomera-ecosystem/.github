@@ -1,18 +1,10 @@
 name: Auto Assign Issues and PRs
 
 on:
-  workflow_call:
-    inputs:
-      assignees:
-        required: true
-        type: string
-      numOfAssignee:
-        required: false
-        type: number
-        default: 1
-    secrets:
-      GITHUB_TOKEN:
-        required: true
+  issues:
+    types: [opened]
+  pull_request:
+    types: [opened]
 
 jobs:
   run:
@@ -21,9 +13,9 @@ jobs:
       issues: write
       pull-requests: write
     steps:
-      - name: Auto-assign
+      - name: Auto-assign to Youssef
         uses: pozil/auto-assign-issue@v2
         with:
           repo-token: ${{ secrets.GITHUB_TOKEN }}
-          assignees: ${{ inputs.assignees }}
-          numOfAssignee: ${{ inputs.numOfAssignee }}
+          assignees: Ammari-Youssef
+          numOfAssignee: 1
