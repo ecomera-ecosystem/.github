@@ -1,6 +1,7 @@
 name: GitHub Labeler
 
 on:
+  workflow_dispatch:
   pull_request:
     branches: [ master, development ]
     types: [ opened, edited, reopened, labeled, unlabeled, synchronize ]

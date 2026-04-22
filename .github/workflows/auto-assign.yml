@@ -1,6 +1,7 @@
 name: Auto Assign Issues and PRs
 
 on:
+  workflow_dispatch:
   issues:
     types: [opened]
   pull_request:
