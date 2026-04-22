@@ -1,0 +1,40 @@
+name: CodeQL Analysis
+
+on:
+  workflow_call:
+    inputs:
+      language:
+        required: false
+        type: string
+        default: 'java'
+    secrets:
+      GITHUB_TOKEN:
+        required: true
+
+jobs:
+  analyze:
+    name: Analyze (${{ inputs.language }})
+    runs-on: ubuntu-latest
+    permissions:
+      security-events: write
+      actions: read
+      contents: read
+    strategy:
+      fail-fast: false
+      matrix:
+        language: [ ${{ inputs.language }} ]
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v6
+
+      - name: Initialize CodeQL
+        uses: github/codeql-action/init@v4
+        with:
+          languages: ${{ matrix.language }}
+
+      - name: Autobuild Project
+        uses: github/codeql-action/autobuild@v4
+
+      - name: Perform CodeQL Analysis
+        uses: github/codeql-action/analyze@v4

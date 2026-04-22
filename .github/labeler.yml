@@ -1,0 +1,299 @@
+# Auto-label rules for PRs and Issues
+# --- Microservices ---
+auth-service:
+  - changed-files:
+      - any-glob-to-any-file: [ "src/main/java/com/ecomera/auth/**" ]
+  - title: [ "auth service", "authentication", "jwt", "login", "signup" ]
+  - body: [ "auth", "jwt", "authentication", "credentials", "user auth" ]
+
+api-gateway:
+  - changed-files:
+      - any-glob-to-any-file: [ "src/main/java/com/ecomera/gateway/**" ]
+  - title: [ "gateway", "routing", "api gateway" ]
+  - body: [ "gateway", "routing", "proxy", "spring cloud gateway" ]
+
+config-server:
+  - changed-files:
+      - any-glob-to-any-file: [ "src/main/java/com/ecomera/config/**" ]
+  - title: [ "config server", "spring cloud config" ]
+  - body: [ "config", "configuration", "spring cloud config", "vault" ]
+
+eureka-service:
+  - changed-files:
+      - any-glob-to-any-file: [ "src/main/java/com/ecomera/eureka/**" ]
+  - title: [ "eureka", "service registry", "discovery" ]
+  - body: [ "eureka", "service registry", "discovery", "spring cloud netflix" ]
+
+order-service:
+  - changed-files:
+      - any-glob-to-any-file: [ "src/main/java/com/ecomera/order/**" ]
+  - title: [ "order", "purchase", "checkout" ]
+  - body: [ "order", "transaction", "checkout" ]
+
+payment-service:
+  - changed-files:
+      - any-glob-to-any-file: [ "src/main/java/com/ecomera/payment/**" ]
+  - title: [ "payment", "transaction", "billing" ]
+  - body: [ "payment", "billing", "transaction", "checkout" ]
+
+notification-service:
+  - changed-files:
+      - any-glob-to-any-file: [ "src/main/java/com/ecomera/notification/**" ]
+  - title: [ "notification", "messaging", "kafka" ]
+  - body: [ "notification", "messaging", "event", "kafka" ]
+
+inventory-service:
+  - changed-files:
+      - any-glob-to-any-file: [ "src/main/java/com/ecomera/inventory/**" ]
+  - title: [ "inventory", "stock", "warehouse" ]
+  - body: [ "inventory", "stock", "supply" ]
+
+user-service:
+  - changed-files:
+      - any-glob-to-any-file: [ "src/main/java/com/ecomera/user/**" ]
+  - title: [ "user service", "accounts", "profiles", "authentication" ]
+  - body: [ "user", "account", "profile", "authentication" ]
+
+# --- Auth & Security ---
+auth:
+  - changed-files:
+      - any-glob-to-any-file: [ "src/main/java/**/auth/**", "src/main/java/**/security/**" ]
+  - title: [ "auth", "authentication", "login", "signup", "register" ]
+  - body: [ "authentication", "login flow", "credentials", "user auth" ]
+
+security:
+  - changed-files:
+      - any-glob-to-any-file: [ "src/main/java/**/auth/**", "src/main/java/**/security/**" ]
+  - title: [ "security", "vulnerability", "hardening" ]
+  - body: [ "xss", "csrf", "sql injection", "privilege", "attack vector", "security fix" ]
+
+codeql:
+  - changed-files:
+      - any-glob-to-any-file: [ ".github/workflows/codeql.yml", ".github/workflows/codeql-advanced.yml" ]
+  - title: [ "codeql", "security scan", "static analysis" ]
+  - body: [ "codeql", "security scan", "static analysis", "github code scanning" ]
+
+# --- API & Domain ---
+api:
+  - changed-files:
+      - any-glob-to-any-file: [ "src/main/java/**/controller/**", "src/main/java/**/domain/**" ]
+  - title: [ "api", "endpoint", "rest", "controller", "openapi", "swagger" ]
+  - body: [ "http", "request", "response", "endpoint", "swagger ui", "rest", "controller" ]
+
+refactor:
+  - title: [ "refactor", "cleanup", "restructure", "simplify" ]
+  - body: [ "technical debt", "refactor", "cleanup", "remove duplication" ]
+
+enhancement:
+  - title: [ "feature", "enhancement", "improve", "extend" ]
+  - body: [ "new feature", "enhancement", "improvement", "extend functionality" ]
+
+# --- Database ---
+database:
+  - changed-files:
+      - any-glob-to-any-file: [ "src/main/resources/db/**", "src/main/java/**/repository/**" ]
+
+liquibase:
+  - changed-files:
+      - any-glob-to-any-file: [ "src/main/resources/db/changelog/**", "src/main/resources/liquibase/**", "**/db/changelog-*.xml" ]
+  - title: [ "liquibase", "migration", "changelog" ]
+  - body: [ "liquibase", "migration", "changelog", "rollback" ]
+
+redis:
+  - changed-files:
+      - any-glob-to-any-file: [ "src/main/java/**/cache/**", "src/main/resources/redis/**", "src/main/java/**/config/Redis*.java", "src/main/java/**/config/*Cache*.java", "redis.conf", "docker/redis/**" ]
+  - title: [ "redis", "cache" ]
+  - body: [ "redis", "cache", "in-memory" ]
+
+postgres:
+  - changed-files:
+      - any-glob-to-any-file: [ "src/main/resources/db/**", "src/main/java/**/repository/**", "docker/postgres/**", "postgresql.conf" ]
+  - title: [ "postgres", "postgresql", "database" ]
+  - body: [ "postgres", "sql", "migration", "schema" ]
+
+mongodb:
+  - changed-files:
+      - any-glob-to-any-file: [ "src/main/resources/db/**", "src/main/java/**/repository/**", "docker/mongodb/**", "mongodb.conf" ]
+  - title: [ "mongodb", "database", "nosql" ]
+  - body: [ "mongodb", "nosql", "mongoose","document database", "migration", "schema" ]
+
+# --- CI/CD & Infra ---
+ci-cd:
+  - changed-files:
+      - any-glob-to-any-file: [ ".github/workflows/**", "Dockerfile", "docker-compose.yml" ]
+
+qodana:
+  - changed-files:
+      - any-glob-to-any-file: [ ".github/workflows/qodana.yml", "qodana.yaml" ]
+  - title: [ "qodana", "static analysis", "code quality" ]
+  - body: [ "qodana", "inspection", "lint", "static analysis", "code quality", "jetbrains" ]
+
+docker:
+  - changed-files:
+      - any-glob-to-any-file: [ "Dockerfile", "docker-compose.yml", "**/Dockerfile", "**/docker-compose.yml" ]
+  - title: [ "docker", "container", "image" ]
+  - body: [ "docker", "containerize", "build image", "compose" ]
+
+deployment:
+  - changed-files:
+      - any-glob-to-any-file: [ "vercel.json", "railway.json", "infra/**" ]
+
+infrastructure:
+  - changed-files:
+      - any-glob-to-any-file: [ "infra/**", ".github/workflows/**" ]
+
+github-actions:
+  - changed-files:
+      - any-glob-to-any-file: [ ".github/workflows/**", ".github/**" ]
+
+apache-kafka:
+  - changed-files:
+      - any-glob-to-any-file: [ "src/main/java/**/kafka/**", "src/main/resources/kafka/**", "docker/kafka/**" ]
+  - title: [ "kafka", "event streaming", "messaging" ]
+  - body: [ "kafka", "event streaming", "messaging", "producer", "consumer" ]
+
+# --- Testing & Performance ---
+testing:
+  - changed-files:
+      - any-glob-to-any-file: [ "src/test/**", "frontend/**/*.spec.ts", "frontend/e2e/**" ]
+
+performance:
+  - title: [ "performance", "optimize", "slow", "latency" ]
+  - body: [ "optimize", "cache", "profiling" ]
+
+testcontainers:
+  - changed-files:
+      - any-glob-to-any-file: [ "src/test/java/**/Testcontainers*/**", "src/test/java/**/integration/**" ]
+  - title: [ "testcontainers", "integration test" ]
+  - body: [ "testcontainers", "dockerized test", "container test" ]
+
+junit:
+  - changed-files:
+      - any-glob-to-any-file: [ "src/test/java/**", "**/*Test.java" ]
+  - title: [ "junit", "unit test" ]
+  - body: [ "junit", "@Test", "assertEquals", "assertTrue" ]
+
+mockito:
+  - changed-files:
+      - any-glob-to-any-file: [ "src/test/java/**", "src/test/java/**/mock/**" ]
+  - title: [ "mockito", "mock", "stub" ]
+  - body: [ "mockito", "mock", "stub", "when()", "verify()" ]
+
+# --- Documentation ---
+documentation:
+  - changed-files:
+      - any-glob-to-any-file: [ "docs/**", "README.md" ]
+  - title: [ "docs", "documentation", "readme", "guide" ]
+  - body: [ "how to", "setup", "installation", "usage", "documentation" ]
+
+# --- Generic Workflow Labels ---
+bug:
+  - title: [ "bug", "error", "fail", "fix", "broken", "error" ]
+  - body: [ "unexpected", "crash", "stacktrace", "exception", "stacktrace", "unexpected behavior", "does not work", "fails" ]
+
+question:
+  - title: [ "question", "how", "what", "why" ]
+  - body: [ "clarify", "explain" ]
+
+help wanted:
+  - title: [ "help", "support" ]
+  - body: [ "need help", "assist" ]
+
+good first issue:
+  - title: [ "good first issue", "beginner" ]
+  - body: [ "easy", "starter" ]
+
+blocked:
+  - title: [ "blocked", "dependency", "waiting" ]
+
+ready-for-review:
+  - title: [ "ready for review", "finished" ]
+
+release:
+  - title: [ "release", "tag", "version" ]
+
+duplicate:
+  - title: [ "duplicate" ]
+
+invalid:
+  - title: [ "invalid" ]
+
+wontfix:
+  - title: [ "wontfix" ]
+
+# --- Priority Labels ---
+high-priority:
+  - title: [ "high priority", "urgent", "critical" ]
+  - body: [ "urgent", "critical", "blocker", "asap", "immediate" ]
+
+medium-priority:
+  - title: [ "medium priority" ]
+  - body: [ "medium priority", "normal", "standard", "moderate" ]
+
+low-priority:
+  - title: [ "low priority" ]
+  - body: [ "low priority", "minor", "low impact", "non-urgent", "nice to have" ]
+
+# --- Sprint Labels ---
+sprint-0:
+  - title: [ "sprint-0" ]
+  - body: [ "initial setup", "project setup", "setup", "foundation", "initial", "restructure" ]
+  - changed-files:
+      - any-glob-to-any-file: [ "README.md", "docs/**", ".github/**" ]
+
+sprint-1:
+  - title: [ "sprint-1" ]
+  - body: [ "infra", "gateway", "auth", "config server", "eureka", "infrastructure setup" ]
+  - changed-files:
+      - any-glob-to-any-file:
+          [ "src/main/java/com/ecomera/gateway/**",
+            "src/main/java/com/ecomera/auth/**",
+            "src/main/java/com/ecomera/config/**",
+            "src/main/java/com/ecomera/eureka/**",
+            "infra/**" ]
+
+sprint-2:
+  - title: [ "sprint-2" ]
+  - body: [ "order", "payment", "postgres", "redis", "transaction", "checkout" ]
+  - changed-files:
+      - any-glob-to-any-file:
+          [ "src/main/java/com/ecomera/order/**",
+            "src/main/java/com/ecomera/payment/**",
+            "src/main/resources/db/**",
+            "docker/postgres/**",
+            "src/main/java/**/repository/**",
+            "src/main/java/**/cache/**",
+            "docker/redis/**" ]
+
+sprint-3:
+  - title: [ "sprint-3" ]
+  - body: [ "notification", "kafka", "mongodb", "email", "messaging", "event-driven" ]
+  - changed-files:
+      - any-glob-to-any-file:
+          [ "src/main/java/com/ecomera/notification/**",
+            "src/main/java/**/kafka/**",
+            "docker/kafka/**",
+            "src/main/resources/mongodb/**",
+            "docker/mongodb/**" ]
+
+sprint-4:
+  - title: [ "sprint-4" ]
+  - body: [ "quality", "observability", "monitoring", "logging", "performance", "security", "codeql" ]
+  - changed-files:
+      - any-glob-to-any-file:
+          [ ".github/workflows/codeql.yml",
+            "src/main/java/**/logging/**",
+            "src/main/java/**/monitoring/**",
+            "src/main/java/**/performance/**",
+            "src/main/java/**/security/**" ]
+
+sprint-5:
+  - title: [ "sprint-5" ]
+  - body: [ "production", "deployment", "scaling", "kubernetes", "documentation", "tech debt cleanup" ]
+  - changed-files:
+      - any-glob-to-any-file:
+          [ "infra/kubernetes/**",
+            "infra/deployment/**",
+            "docs/**",
+            "README.md",
+            "src/main/java/**/scaling/**" ]

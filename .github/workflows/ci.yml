@@ -1,0 +1,65 @@
+name: Ecomera Microservices CI
+
+on:
+  workflow_call:
+    inputs:
+      java_version:
+        required: false
+        type: string
+        default: '17'
+      maven_goals:
+        required: false
+        type: string
+        default: 'clean verify'
+    secrets:
+      GITHUB_TOKEN:
+        required: true
+
+jobs:
+  build-and-test:
+    name: Build & Test
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v6
+
+      - name: Set up JDK ${{ inputs.java_version }}
+        uses: actions/setup-java@v5
+        with:
+          java-version: ${{ inputs.java_version }}
+          distribution: 'temurin'
+          cache: maven
+
+      - name: Build & test
+        run: mvn -B clean verify
+
+      - name: Upload test results
+        if: always()
+        uses: actions/upload-artifact@v7.0.0
+        with:
+          name: test-results
+          path: target/surefire-reports/*.xml
+
+      - name: Upload JaCoCo coverage report
+        uses: actions/upload-artifact@v7.0.0
+        with:
+          name: jacoco-report
+          path: target/site/jacoco/
+
+      - name: JaCoCo Coverage Report
+        uses: madrapps/jacoco-report@v1.6.1
+        with:
+          paths: target/site/jacoco/jacoco.xml
+          token: ${{ secrets.GITHUB_TOKEN }}
+          min-coverage-overall: 50
+          min-coverage-changed-files: 60
+          title: Code Coverage Report
+          update-comment: true
+
+      - name: Upload JAR artifact
+        uses: actions/upload-artifact@v7.0.0
+        with:
+          name: ecomera-backend-${{ github.sha }}
+          path: target/*.jar
+          retention-days: 7

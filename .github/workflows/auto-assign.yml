@@ -1,0 +1,29 @@
+name: Auto Assign Issues and PRs
+
+on:
+  workflow_call:
+    inputs:
+      assignees:
+        required: true
+        type: string
+      numOfAssignee:
+        required: false
+        type: number
+        default: 1
+    secrets:
+      GITHUB_TOKEN:
+        required: true
+
+jobs:
+  run:
+    runs-on: ubuntu-latest
+    permissions:
+      issues: write
+      pull-requests: write
+    steps:
+      - name: Auto-assign
+        uses: pozil/auto-assign-issue@v2
+        with:
+          repo-token: ${{ secrets.GITHUB_TOKEN }}
+          assignees: ${{ inputs.assignees }}
+          numOfAssignee: ${{ inputs.numOfAssignee }}
