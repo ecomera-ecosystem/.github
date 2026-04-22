@@ -4,12 +4,9 @@ on:
   workflow_call:
     inputs:
       language:
-        required: true
+        required: false
         type: string
         default: 'java'
-    secrets:
-      GITHUB_TOKEN:
-        required: true
 
 jobs:
   analyze:
@@ -22,7 +19,7 @@ jobs:
     strategy:
       fail-fast: false
       matrix:
-        language: [ ${{ inputs.language }} ]
+        language: ['${{ inputs.language }}']
 
     steps:
       - name: Checkout repository
