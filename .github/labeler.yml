@@ -18,7 +18,7 @@ config-server:
   - title: [ "config server", "spring cloud config" ]
   - body: [ "config", "configuration", "spring cloud config", "vault" ]
 
-eureka-service:
+eureka-server:
   - changed-files:
       - any-glob-to-any-file: [ "src/main/java/com/ecomera/eureka/**" ]
   - title: [ "eureka", "service registry", "discovery" ]

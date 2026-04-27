@@ -49,6 +49,14 @@
   color: "0075CA"
   description: "API Gateway (routing, proxy, service orchestration)"
 
+- name: notification-service
+  color: "FBCA04"
+  description: "Notification service (email, SMS, push notifications)"
+
+- name: eureka-server
+  color: "D4C5F9"
+  description: "Eureka Service Registry for service discovery"
+
 # --- Database ---
 - name: database
   color: "1D76DB"
