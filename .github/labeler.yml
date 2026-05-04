@@ -122,11 +122,17 @@ ci-cd:
   - changed-files:
       - any-glob-to-any-file: [ ".github/workflows/**", "Dockerfile", "docker-compose.yml" ]
 
-qodana:
+sonarqube:
   - changed-files:
-      - any-glob-to-any-file: [ ".github/workflows/qodana.yml", "qodana.yaml" ]
-  - title: [ "qodana", "static analysis", "code quality" ]
-  - body: [ "qodana", "inspection", "lint", "static analysis", "code quality", "jetbrains" ]
+      - any-glob-to-any-file: [ ".github/workflows/sonar.yml", "sonar-project.properties" ]
+  - title: [ "sonarqube", "code quality", "static analysis" ]
+  - body: [ "sonarqube", "code quality", "static analysis", "sonar scan" ]
+
+hashicorp-vault:
+  - changed-files:
+      - any-glob-to-any-file: [ "src/main/java/**/config/Vault*.java", "src/main/resources/vault/**", "infra/vault/**" ]
+  - title: [ "vault", "hashicorp vault", "secret management" ]
+  - body: [ "vault", "hashicorp vault", "secret management", "configuration encryption" ]
 
 docker:
   - changed-files:
@@ -243,7 +249,7 @@ sprint-0:
 
 sprint-1:
   - title: [ "sprint-1" ]
-  - body: [ "infra", "gateway", "auth", "config server", "eureka", "infrastructure setup" ]
+  - body: [ "infra", "gateway", "auth", "config server", "eureka", "infrastructure setup", "Vault", "HashiCorp", "Vault HashiCorp" ]
   - changed-files:
       - any-glob-to-any-file:
           [ "src/main/java/com/ecomera/gateway/**",

@@ -86,6 +86,10 @@
   color: "0DB7ED"
   description: "Docker containerization"
 
+- name: kubernetes
+  color: "326DE6"
+  description: "Kubernetes deployment and configuration"
+
 - name: deployment
   color: "BFD4F2"
   description: "Deployment configurations and scripts"
@@ -105,6 +109,14 @@
 - name: apache-kafka
   color: "5319E7"
   description: "Apache Kafka messaging and event streaming"
+
+- name: sonarqube
+  color: "C2E0C6"
+  description: "SonarQube code quality and static analysis"
+
+- name: hashicorp-vault
+  color: "D93F0B"
+  description: "HashiCorp Vault secrets management"
 
 # --- Testing & Performance ---
 - name: testing
