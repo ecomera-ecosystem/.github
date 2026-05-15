@@ -33,31 +33,43 @@
   color: "0E8A16"
   description: "Authentication service (login, registration, JWT)"
 
-- name: user-service
-  color: "5319E7"
-  description: "User service (accounts, profiles, authentication)"
+- name: product-service
+  color: "D93F0B"
+  description: "Product service (catalog, product management, search)"
+
+- name: cart-service
+  color: "0075CA"
+  description: "Cart service (shopping cart, session management)"
 
 - name: order-service
   color: "D93F0B"
   description: "Order service (checkout, transactions, purchases)"
 
-- name: inventory-service
-  color: "0E8A16"
-  description: "Inventory service (stock, warehouse, supply)"
+- name: payment-service
+  color: "0075CA"
+  description: "Payment service (payment processing, billing, refunds)"
 
 - name: api-gateway
   color: "0075CA"
   description: "API Gateway (routing, proxy, service orchestration)"
 
-- name: notification-service
-  color: "FBCA04"
-  description: "Notification service (email, SMS, push notifications)"
+- name: config-server
+  color: "D4C5F9"
+  description: "Spring Cloud Config Server for centralized configuration"
 
-- name: eureka-server
+- name: eureka-service-registry
   color: "D4C5F9"
   description: "Eureka Service Registry for service discovery"
 
-# --- Database ---
+- name: backend-monolithic
+  color: "5319E7"
+  description: "Monolithic backend application"
+
+- name: notification-service
+  color: "FBCA04"
+  description: "Notification service (email, SMS, push, events via Kafka)"
+
+# --- Infrastructure ---
 - name: database
   color: "1D76DB"
   description: "Database schema and data-related changes"
@@ -77,6 +89,21 @@
 - name: mongodb
   color: "4E9A06"
   description: "MongoDB database"
+
+# --- Messaging & Streaming ---
+- name: apache-kafka
+  color: "5319E7"
+  description: "Apache Kafka messaging and event streaming"
+
+# --- Observability ---
+- name: tracing
+  color: "1D76DB"
+  description: "Distributed tracing with Zipkin"
+
+- name: zipkin
+  color: "FBCA04"
+  description: "Zipkin distributed tracing system"
+
 # --- CI/CD & Infra ---
 - name: ci-cd
   color: "0E8A16"
@@ -86,37 +113,21 @@
   color: "0DB7ED"
   description: "Docker containerization"
 
-- name: kubernetes
-  color: "326DE6"
-  description: "Kubernetes deployment and configuration"
-
-- name: deployment
-  color: "BFD4F2"
-  description: "Deployment configurations and scripts"
-
-- name: infrastructure
-  color: "D4C5F9"
-  description: "Infrastructure setup and configuration"
-
 - name: github-actions
   color: "000000"
   description: "GitHub Actions workflows"
 
-- name: monitoring
-  color: "FBCA04"
-  description: "Monitoring, logging, and observability"
+- name: hashicorp-vault
+  color: "D93F0B"
+  description: "HashiCorp Vault secrets management"
 
-- name: apache-kafka
-  color: "5319E7"
-  description: "Apache Kafka messaging and event streaming"
+- name: eureka
+  color: "D4C5F9"
+  description: "Eureka service discovery"
 
 - name: sonarqube
   color: "C2E0C6"
   description: "SonarQube code quality and static analysis"
-
-- name: hashicorp-vault
-  color: "D93F0B"
-  description: "HashiCorp Vault secrets management"
 
 # --- Testing & Performance ---
 - name: testing
@@ -138,6 +149,10 @@
 - name: mockito
   color: "C2E0C6"
   description: "Mockito mocking framework"
+
+- name: jacoco
+  color: "1D76DB"
+  description: "JaCoCo code coverage reports and thresholds"
 
 # --- Documentation ---
 - name: documentation
@@ -209,21 +224,34 @@
 
 - name: sprint-2
   color: "D93F0B"
-  description: "Sprint 2: Core Business Services (Order, Payment, Postgres, Redis)"
+  description: "Sprint 2: Core Business Services (Order, Payment, Cart, Product)"
 
 - name: sprint-3
   color: "0E8A16"
-  description: "Sprint 3: Notifications & Messaging (Kafka, MongoDB, Email Service)"
+  description: "Sprint 3: Notifications & Messaging (Notification Service, Kafka, MongoDB, SonarQube, Testing)"
 
 - name: sprint-4
   color: "FBCA04"
-  description: "Sprint 4: Quality & Observability (Monitoring, Logging, Security, Performance)"
+  description: "Sprint 4: Production Readiness (Deployment, Scaling, Documentation, Tech Debt)"
 
 - name: sprint-5
   color: "FF6F00"
-  description: "Sprint 5: Production Readiness (Deployment, Scaling, Documentation, Tech Debt)"
+  description: "Sprint 5: Open for future needs"
 
 # --- Tech Debt ---
 - name: tech-debt
   color: "D93F0B"
   description: "Technical debt that needs addressing"
+
+# --- Technology-Specific Labels ---
+- name: spring-boot
+  color: "6DB33F"
+  description: "Spring Boot framework related issues"
+
+- name: angular
+  color: "D93F0B"
+  description: "Angular frontend related issues"
+
+- name: frontend
+  color: "E34C26"
+  description: "Frontend related issues"

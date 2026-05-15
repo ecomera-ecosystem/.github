@@ -2,81 +2,87 @@
 # --- Microservices ---
 auth-service:
   - changed-files:
-      - any-glob-to-any-file: [ "src/main/java/com/ecomera/auth/**" ]
+      - any-glob-to-any-file: [ "ecomera-auth-service/**" ]
   - title: [ "auth service", "authentication", "jwt", "login", "signup" ]
   - body: [ "auth", "jwt", "authentication", "credentials", "user auth" ]
 
 api-gateway:
   - changed-files:
-      - any-glob-to-any-file: [ "src/main/java/com/ecomera/gateway/**" ]
+      - any-glob-to-any-file: [ "ecomera-api-gateway/**" ]
   - title: [ "gateway", "routing", "api gateway" ]
   - body: [ "gateway", "routing", "proxy", "spring cloud gateway" ]
 
 config-server:
   - changed-files:
-      - any-glob-to-any-file: [ "src/main/java/com/ecomera/config/**" ]
+      - any-glob-to-any-file: [ "ecomera-config-server/**" ]
   - title: [ "config server", "spring cloud config" ]
   - body: [ "config", "configuration", "spring cloud config", "vault" ]
 
-eureka-server:
+eureka-service-registry:
   - changed-files:
-      - any-glob-to-any-file: [ "src/main/java/com/ecomera/eureka/**" ]
+      - any-glob-to-any-file: [ "ecomera-eureka-service-registry/**" ]
   - title: [ "eureka", "service registry", "discovery" ]
   - body: [ "eureka", "service registry", "discovery", "spring cloud netflix" ]
 
 order-service:
   - changed-files:
-      - any-glob-to-any-file: [ "src/main/java/com/ecomera/order/**" ]
+      - any-glob-to-any-file: [ "ecomera-order-service/**" ]
   - title: [ "order", "purchase", "checkout" ]
   - body: [ "order", "transaction", "checkout" ]
 
 payment-service:
   - changed-files:
-      - any-glob-to-any-file: [ "src/main/java/com/ecomera/payment/**" ]
+      - any-glob-to-any-file: [ "ecomera-payment-service/**" ]
   - title: [ "payment", "transaction", "billing" ]
   - body: [ "payment", "billing", "transaction", "checkout" ]
 
+cart-service:
+  - changed-files:
+      - any-glob-to-any-file: [ "ecomera-cart-service/**" ]
+  - title: [ "cart", "shopping cart", "session" ]
+  - body: [ "cart", "shopping", "checkout" ]
+
+product-service:
+  - changed-files:
+      - any-glob-to-any-file: [ "ecomera-product-service/**" ]
+  - title: [ "product", "catalog", "search" ]
+  - body: [ "product", "catalog", "inventory", "search" ]
+
+backend-monolithic:
+  - changed-files:
+      - any-glob-to-any-file: [ "ecomera-backend-monolithic/**" ]
+  - title: [ "monolith", "monolithic", "backend monolithic" ]
+  - body: [ "monolith", "monolithic backend" ]
+
 notification-service:
   - changed-files:
-      - any-glob-to-any-file: [ "src/main/java/com/ecomera/notification/**" ]
-  - title: [ "notification", "messaging", "kafka" ]
-  - body: [ "notification", "messaging", "event", "kafka" ]
-
-inventory-service:
-  - changed-files:
-      - any-glob-to-any-file: [ "src/main/java/com/ecomera/inventory/**" ]
-  - title: [ "inventory", "stock", "warehouse" ]
-  - body: [ "inventory", "stock", "supply" ]
-
-user-service:
-  - changed-files:
-      - any-glob-to-any-file: [ "src/main/java/com/ecomera/user/**" ]
-  - title: [ "user service", "accounts", "profiles", "authentication" ]
-  - body: [ "user", "account", "profile", "authentication" ]
+      - any-glob-to-any-file: [ "ecomera-notification-service/**" ]
+  - title: [ "notification", "messaging", "kafka", "apache kafka" ]
+  - body: [ "notification", "messaging", "event", "kafka", "apache kafka" ]
 
 # --- Auth & Security ---
 auth:
   - changed-files:
-      - any-glob-to-any-file: [ "src/main/java/**/auth/**", "src/main/java/**/security/**" ]
+      - any-glob-to-any-file: [ "ecomera-auth-service/**" ]
   - title: [ "auth", "authentication", "login", "signup", "register" ]
   - body: [ "authentication", "login flow", "credentials", "user auth" ]
 
 security:
   - changed-files:
-      - any-glob-to-any-file: [ "src/main/java/**/auth/**", "src/main/java/**/security/**" ]
+      - any-glob-to-any-file: [ "ecomera-auth-service/src/main/java/**/security/**" ]
   - title: [ "security", "vulnerability", "hardening" ]
   - body: [ "xss", "csrf", "sql injection", "privilege", "attack vector", "security fix" ]
 
 codeql:
   - changed-files:
-      - any-glob-to-any-file: [ ".github/workflows/codeql.yml", ".github/workflows/codeql-advanced.yml" ]
+      - any-glob-to-any-file: [ ".github/workflows/codeql.yml" ]
   - title: [ "codeql", "security scan", "static analysis" ]
   - body: [ "codeql", "security scan", "static analysis", "github code scanning" ]
 
 # --- API & Domain ---
 api:
   - changed-files:
-      - any-glob-to-any-file: [ "src/main/java/**/controller/**", "src/main/java/**/domain/**" ]
+      - any-glob-to-any-file: [ "**/controller/**", "**/domain/**" ]
   - title: [ "api", "endpoint", "rest", "controller", "openapi", "swagger" ]
   - body: [ "http", "request", "response", "endpoint", "swagger ui", "rest", "controller" ]
 
@@ -91,77 +97,94 @@ enhancement:
 # --- Database ---
 database:
   - changed-files:
-      - any-glob-to-any-file: [ "src/main/resources/db/**", "src/main/java/**/repository/**" ]
+      - any-glob-to-any-file: [ "**/resources/db/**", "**/repository/**" ]
 
 liquibase:
   - changed-files:
-      - any-glob-to-any-file: [ "src/main/resources/db/changelog/**", "src/main/resources/liquibase/**", "**/db/changelog-*.xml" ]
+      - any-glob-to-any-file: [ "**/resources/db/changelog/**", "**/resources/liquibase/**" ]
   - title: [ "liquibase", "migration", "changelog" ]
   - body: [ "liquibase", "migration", "changelog", "rollback" ]
 
 redis:
   - changed-files:
-      - any-glob-to-any-file: [ "src/main/java/**/cache/**", "src/main/resources/redis/**", "src/main/java/**/config/Redis*.java", "src/main/java/**/config/*Cache*.java", "redis.conf", "docker/redis/**" ]
+      - any-glob-to-any-file: [ "**/cache/**", "**/config/Redis*.java", "**/config/*Cache*.java" ]
   - title: [ "redis", "cache" ]
   - body: [ "redis", "cache", "in-memory" ]
 
 postgres:
   - changed-files:
-      - any-glob-to-any-file: [ "src/main/resources/db/**", "src/main/java/**/repository/**", "docker/postgres/**", "postgresql.conf" ]
+      - any-glob-to-any-file: [ "**/resources/db/**", "**/repository/**" ]
   - title: [ "postgres", "postgresql", "database" ]
   - body: [ "postgres", "sql", "migration", "schema" ]
 
 mongodb:
   - changed-files:
-      - any-glob-to-any-file: [ "src/main/resources/db/**", "src/main/java/**/repository/**", "docker/mongodb/**", "mongodb.conf" ]
-  - title: [ "mongodb", "database", "nosql" ]
-  - body: [ "mongodb", "nosql", "mongoose","document database", "migration", "schema" ]
+      - any-glob-to-any-file: [ "**/mongodb/**", "ecomera-infrastructure/init-mongo*/**" ]
+  - title: [ "mongodb", "nosql", "document database" ]
+  - body: [ "mongodb", "nosql", "mongoose", "document database", "migration" ]
 
-# --- CI/CD & Infra ---
-ci-cd:
+# --- Messaging & Streaming ---
+apache-kafka:
   - changed-files:
-      - any-glob-to-any-file: [ ".github/workflows/**", "Dockerfile", "docker-compose.yml" ]
+      - any-glob-to-any-file: [ "**/kafka/**", "ecomera-infrastructure/kafka/**" ]
+  - title: [ "kafka", "event streaming", "messaging" ]
+  - body: [ "kafka", "apache kafka", "event streaming", "messaging", "producer", "consumer" ]
 
-sonarqube:
+# --- Observability ---
+tracing:
   - changed-files:
-      - any-glob-to-any-file: [ ".github/workflows/sonar.yml", "sonar-project.properties" ]
-  - title: [ "sonarqube", "code quality", "static analysis" ]
-  - body: [ "sonarqube", "code quality", "static analysis", "sonar scan" ]
+      - any-glob-to-any-file: [ "**/tracing/**", "**/zipkin/**" ]
+  - title: [ "tracing", "zipkin", "distributed tracing" ]
+  - body: [ "tracing", "zipkin", "distributed tracing", "openzipkin" ]
 
-hashicorp-vault:
+zipkin:
   - changed-files:
-      - any-glob-to-any-file: [ "src/main/java/**/config/Vault*.java", "src/main/resources/vault/**", "infra/vault/**" ]
-  - title: [ "vault", "hashicorp vault", "secret management" ]
-  - body: [ "vault", "hashicorp vault", "secret management", "configuration encryption" ]
+      - any-glob-to-any-file: [ "**/zipkin/**", "ecomera-infrastructure/zipkin/**" ]
+  - title: [ "zipkin", "tracing" ]
+  - body: [ "zipkin", "tracing", "openzipkin", "distributed tracing" ]
+
+# --- Infrastructure ---
+infrastructure:
+  - changed-files:
+      - any-glob-to-any-file: [ "ecomera-infrastructure/**", ".github/workflows/**" ]
 
 docker:
   - changed-files:
-      - any-glob-to-any-file: [ "Dockerfile", "docker-compose.yml", "**/Dockerfile", "**/docker-compose.yml" ]
+      - any-glob-to-any-file: [ "**/docker-compose*.yml", "**/Dockerfile" ]
   - title: [ "docker", "container", "image" ]
   - body: [ "docker", "containerize", "build image", "compose" ]
-
-deployment:
-  - changed-files:
-      - any-glob-to-any-file: [ "vercel.json", "railway.json", "infra/**" ]
-
-infrastructure:
-  - changed-files:
-      - any-glob-to-any-file: [ "infra/**", ".github/workflows/**" ]
 
 github-actions:
   - changed-files:
       - any-glob-to-any-file: [ ".github/workflows/**", ".github/**" ]
 
-apache-kafka:
+hashicorp-vault:
   - changed-files:
-      - any-glob-to-any-file: [ "src/main/java/**/kafka/**", "src/main/resources/kafka/**", "docker/kafka/**" ]
-  - title: [ "kafka", "event streaming", "messaging" ]
-  - body: [ "kafka", "event streaming", "messaging", "producer", "consumer" ]
+      - any-glob-to-any-file: [ "ecomera-infrastructure/**", "**/config/Vault*.java" ]
+  - title: [ "vault", "hashicorp vault", "secret management" ]
+  - body: [ "vault", "hashicorp vault", "secret management", "configuration encryption" ]
+
+eureka:
+  - changed-files:
+      - any-glob-to-any-file: [ "ecomera-eureka-service-registry/**" ]
+  - title: [ "eureka", "netflix eureka" ]
+  - body: [ "eureka", "service registry", "netflix" ]
+
+sonarqube:
+  - changed-files:
+      - any-glob-to-any-file: [ "sonar-project.properties", ".github/workflows/sonar*.yml" ]
+  - title: [ "sonarqube", "code quality", "static analysis" ]
+  - body: [ "sonarqube", "code quality", "static analysis" ]
+
+# --- CI/CD ---
+ci-cd:
+  - changed-files:
+      - any-glob-to-any-file: [ ".github/workflows/**", "**/Dockerfile", "**/docker-compose*.yml" ]
 
 # --- Testing & Performance ---
 testing:
   - changed-files:
-      - any-glob-to-any-file: [ "src/test/**", "frontend/**/*.spec.ts", "frontend/e2e/**" ]
+      - any-glob-to-any-file: [ "**/src/test/**" ]
 
 performance:
   - title: [ "performance", "optimize", "slow", "latency" ]
@@ -169,33 +192,56 @@ performance:
 
 testcontainers:
   - changed-files:
-      - any-glob-to-any-file: [ "src/test/java/**/Testcontainers*/**", "src/test/java/**/integration/**" ]
+      - any-glob-to-any-file: [ "**/src/test/java/**/integration/**" ]
   - title: [ "testcontainers", "integration test" ]
   - body: [ "testcontainers", "dockerized test", "container test" ]
 
 junit:
   - changed-files:
-      - any-glob-to-any-file: [ "src/test/java/**", "**/*Test.java" ]
+      - any-glob-to-any-file: [ "**/src/test/java/**" ]
   - title: [ "junit", "unit test" ]
   - body: [ "junit", "@Test", "assertEquals", "assertTrue" ]
 
 mockito:
   - changed-files:
-      - any-glob-to-any-file: [ "src/test/java/**", "src/test/java/**/mock/**" ]
+      - any-glob-to-any-file: [ "**/src/test/java/**" ]
   - title: [ "mockito", "mock", "stub" ]
   - body: [ "mockito", "mock", "stub", "when()", "verify()" ]
+
+jacoco:
+  - changed-files:
+      - any-glob-to-any-file: [ "**/pom.xml", "**/jacoco*.xml", "**/coverage/**" ]
+  - title: [ "jacoco", "coverage", "code coverage" ]
+  - body: [ "jacoco", "coverage", "code coverage", "report" ]
 
 # --- Documentation ---
 documentation:
   - changed-files:
-      - any-glob-to-any-file: [ "docs/**", "README.md" ]
+      - any-glob-to-any-file: [ "docs/**", "README.md", "**/README.md" ]
   - title: [ "docs", "documentation", "readme", "guide" ]
   - body: [ "how to", "setup", "installation", "usage", "documentation" ]
 
-# --- Generic Workflow Labels ---
+# --- Technology-Specific Labels ---
+spring-boot:
+  - changed-files:
+      - any-glob-to-any-file: [ "**/pom.xml", "**/*.java" ]
+  - title: [ "spring boot", "spring" ]
+  - body: [ "spring boot", "spring framework" ]
+
+angular:
+  - changed-files:
+      - any-glob-to-any-file: [ "ecomera-frontend/src/**/*.ts", "ecomera-frontend/**/*.html", "ecomera-frontend/**/*.css", "ecomera-frontend/angular.json", "ecomera-frontend/package.json" ]
+  - title: [ "angular", "angular component", "angular service" ]
+  - body: [ "angular", "component", "frontend" ]
+
+frontend:
+  - changed-files:
+      - any-glob-to-any-file: [ "ecomera-frontend/**" ]
+  - title: [ "frontend", "ui", "user interface" ]
+  - body: [ "frontend", "ui", "user interface", "angular" ]
 bug:
-  - title: [ "bug", "error", "fail", "fix", "broken", "error" ]
-  - body: [ "unexpected", "crash", "stacktrace", "exception", "stacktrace", "unexpected behavior", "does not work", "fails" ]
+  - title: [ "bug", "error", "fail", "fix", "broken" ]
+  - body: [ "unexpected", "crash", "stacktrace", "exception", "unexpected behavior", "does not work", "fails" ]
 
 question:
   - title: [ "question", "how", "what", "why" ]
@@ -249,38 +295,38 @@ sprint-0:
 
 sprint-1:
   - title: [ "sprint-1" ]
-  - body: [ "infra", "gateway", "auth", "config server", "eureka", "infrastructure setup", "Vault", "HashiCorp", "Vault HashiCorp" ]
+  - body: [ "infra", "gateway", "auth", "config server", "eureka", "infrastructure setup", "Vault", "HashiCorp" ]
   - changed-files:
       - any-glob-to-any-file:
-          [ "src/main/java/com/ecomera/gateway/**",
-            "src/main/java/com/ecomera/auth/**",
-            "src/main/java/com/ecomera/config/**",
-            "src/main/java/com/ecomera/eureka/**",
-            "infra/**" ]
+          [ "ecomera-api-gateway/**",
+            "ecomera-auth-service/**",
+            "ecomera-config-server/**",
+            "ecomera-eureka-service-registry/**",
+            "ecomera-infrastructure/**" ]
 
 sprint-2:
   - title: [ "sprint-2" ]
-  - body: [ "order", "payment", "postgres", "redis", "transaction", "checkout" ]
+  - body: [ "order", "payment", "cart", "product", "postgres", "redis", "transaction", "checkout" ]
   - changed-files:
       - any-glob-to-any-file:
-          [ "src/main/java/com/ecomera/order/**",
-            "src/main/java/com/ecomera/payment/**",
-            "src/main/resources/db/**",
-            "docker/postgres/**",
-            "src/main/java/**/repository/**",
-            "src/main/java/**/cache/**",
-            "docker/redis/**" ]
+          [ "ecomera-order-service/**",
+            "ecomera-payment-service/**",
+            "ecomera-cart-service/**",
+            "ecomera-product-service/**",
+            "**/resources/db/**",
+            "**/repository/**" ]
 
 sprint-3:
   - title: [ "sprint-3" ]
-  - body: [ "notification", "kafka", "mongodb", "email", "messaging", "event-driven" ]
+  - body: [ "notification", "kafka", "mongodb", "messaging", "event-driven", "sonarqube", "testing", "quality" ]
   - changed-files:
       - any-glob-to-any-file:
-          [ "src/main/java/com/ecomera/notification/**",
-            "src/main/java/**/kafka/**",
-            "docker/kafka/**",
-            "src/main/resources/mongodb/**",
-            "docker/mongodb/**" ]
+          [ "ecomera-notification-service/**",
+            "**/kafka/**",
+            "**/mongodb/**",
+            "sonar-project.properties",
+            "src/test/**",
+            "**/testing/**" ]
 
 sprint-4:
   - title: [ "sprint-4" ]
@@ -292,14 +338,3 @@ sprint-4:
             "src/main/java/**/monitoring/**",
             "src/main/java/**/performance/**",
             "src/main/java/**/security/**" ]
-
-sprint-5:
-  - title: [ "sprint-5" ]
-  - body: [ "production", "deployment", "scaling", "kubernetes", "documentation", "tech debt cleanup" ]
-  - changed-files:
-      - any-glob-to-any-file:
-          [ "infra/kubernetes/**",
-            "infra/deployment/**",
-            "docs/**",
-            "README.md",
-            "src/main/java/**/scaling/**" ]
