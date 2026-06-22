@@ -1,6 +1,7 @@
 name: Ecomera Microservices CI
 
 on:
+  workflow_dispatch:
   workflow_call:
     inputs:
       service-name:

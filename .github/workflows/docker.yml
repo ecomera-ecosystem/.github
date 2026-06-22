@@ -1,6 +1,7 @@
 name: Docker Build & Release
 
 on:
+  workflow_dispatch:
   workflow_call:
     inputs:
       image_name:
