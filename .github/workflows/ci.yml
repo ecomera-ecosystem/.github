@@ -76,5 +76,7 @@ jobs:
           retention-days: 7
 
       - name: SonarCloud analysis
-        if: ${{ secrets.SONAR_TOKEN != '' }}
+        env:
+          SONAR_TOKEN: ${{ secrets.SONAR_TOKEN }}
+        if: env.SONAR_TOKEN != ''
         run: mvn -B sonar:sonar -Dsonar.token=${{ secrets.SONAR_TOKEN }}
