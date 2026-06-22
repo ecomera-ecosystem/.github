@@ -17,6 +17,10 @@ on:
         required: false
         type: string
         default: 'clean verify'
+    secrets:
+      SONAR_TOKEN:
+        description: 'SonarCloud token for code quality analysis'
+        required: false
 
 jobs:
   build-and-test:
@@ -26,6 +30,8 @@ jobs:
     steps:
       - name: Checkout repository
         uses: actions/checkout@v6
+        with:
+          fetch-depth: 0
 
       - name: Set up JDK ${{ inputs.java_version }}
         uses: actions/setup-java@v5
@@ -68,3 +74,7 @@ jobs:
           name: ecomera-${{ inputs.service-name }}-${{ github.sha }}
           path: target/*.jar
           retention-days: 7
+
+      - name: SonarCloud analysis
+        if: ${{ secrets.SONAR_TOKEN != '' }}
+        run: mvn -B sonar:sonar -Dsonar.token=${{ secrets.SONAR_TOKEN }}
